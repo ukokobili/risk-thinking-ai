@@ -1,0 +1,25 @@
+[2023-05-10 06:28:20,830] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: machine_learning_dag.machine_learning manual__2023-05-10T06:28:16.726039+00:00 [queued]>
+[2023-05-10 06:28:20,855] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: machine_learning_dag.machine_learning manual__2023-05-10T06:28:16.726039+00:00 [queued]>
+[2023-05-10 06:28:20,855] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-10 06:28:20,855] {taskinstance.py:1239} INFO - Starting attempt 1 of 1
+[2023-05-10 06:28:20,855] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-10 06:28:20,875] {taskinstance.py:1259} INFO - Executing <Task(PythonOperator): machine_learning> on 2023-05-10 06:28:16.726039+00:00
+[2023-05-10 06:28:20,882] {standard_task_runner.py:52} INFO - Started process 30945 to run task
+[2023-05-10 06:28:20,888] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'machine_learning_dag', 'machine_learning', 'manual__2023-05-10T06:28:16.726039+00:00', '--job-id', '167', '--raw', '--subdir', 'DAGS_FOLDER/machine_learning_dag.py', '--cfg-path', '/tmp/tmpmyzmkj6c', '--error-file', '/tmp/tmppq6dmk4g']
+[2023-05-10 06:28:20,889] {standard_task_runner.py:77} INFO - Job 167: Subtask machine_learning
+[2023-05-10 06:28:20,974] {logging_mixin.py:109} INFO - Running <TaskInstance: machine_learning_dag.machine_learning manual__2023-05-10T06:28:16.726039+00:00 [running]> on host cd79de2e36bd
+[2023-05-10 06:28:21,049] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=machine_learning_dag
+AIRFLOW_CTX_TASK_ID=machine_learning
+AIRFLOW_CTX_EXECUTION_DATE=2023-05-10T06:28:16.726039+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-05-10T06:28:16.726039+00:00
+[2023-05-10 07:07:59,328] {logging_mixin.py:109} INFO - Mean Squared Error: 1.9700897898059626
+[2023-05-10 07:07:59,335] {logging_mixin.py:109} INFO - Mean Absolute Error: 0.86404038901568
+[2023-05-10 07:08:00,633] {logging_mixin.py:109} INFO - Pickle file saved
+[2023-05-10 07:08:00,974] {python.py:175} INFO - Done. Returned value was: None
+[2023-05-10 07:08:00,997] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=machine_learning_dag, task_id=machine_learning, execution_date=20230510T062816, start_date=20230510T062820, end_date=20230510T070800
+[2023-05-10 07:08:01,146] {local_task_job.py:154} INFO - Task exited with return code 0
+[2023-05-10 07:08:01,274] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check

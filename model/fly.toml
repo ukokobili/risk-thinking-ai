@@ -1,0 +1,13 @@
+# fly.toml app configuration file generated for ai-app on 2023-05-10T15:31:21+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "ai-app"
+primary_region = "mad"
+
+[http_service]
+  internal_port = 5000
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true

@@ -1,0 +1,53 @@
+[2023-05-10 03:55:48,374] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_processing_dag.download_dataset manual__2023-05-10T03:51:56.264499+00:00 [queued]>
+[2023-05-10 03:55:48,431] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_processing_dag.download_dataset manual__2023-05-10T03:51:56.264499+00:00 [queued]>
+[2023-05-10 03:55:48,431] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-10 03:55:48,432] {taskinstance.py:1239} INFO - Starting attempt 1 of 3
+[2023-05-10 03:55:48,432] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-10 03:55:48,489] {taskinstance.py:1259} INFO - Executing <Task(BashOperator): download_dataset> on 2023-05-10 03:51:56.335783+00:00
+[2023-05-10 03:55:48,500] {standard_task_runner.py:52} INFO - Started process 1205 to run task
+[2023-05-10 03:55:48,520] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'data_processing_dag', 'download_dataset', 'manual__2023-05-10T03:51:56.264499+00:00', '--job-id', '117', '--raw', '--subdir', 'DAGS_FOLDER/data_processing_dag.py', '--cfg-path', '/tmp/tmp_jq1wwk_', '--error-file', '/tmp/tmptrk8ed7o']
+[2023-05-10 03:55:48,521] {standard_task_runner.py:77} INFO - Job 117: Subtask download_dataset
+[2023-05-10 03:55:48,771] {logging_mixin.py:109} INFO - Running <TaskInstance: data_processing_dag.download_dataset manual__2023-05-10T03:51:56.264499+00:00 [running]> on host cd79de2e36bd
+[2023-05-10 03:55:48,981] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=data_processing_dag
+AIRFLOW_CTX_TASK_ID=download_dataset
+AIRFLOW_CTX_EXECUTION_DATE=2023-05-10T03:51:56.335783+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-05-10T03:51:56.264499+00:00
+[2023-05-10 03:55:48,983] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2023-05-10 03:55:48,986] {subprocess.py:74} INFO - Running command: ['bash', '-c', '#!/bin/bash\n\n# Install Kaggle CLI\npip install kaggle\n\n# Set your Kaggle API credentials\nexport KAGGLE_USERNAME="jacobukokobili" #$(jq -r \'.username\' ~/.kaggle/kaggle.json)\nexport KAGGLE_KEY="61b5f532a19d8c9f03d309e9b75a02ff" #$(jq -r \'.key\' ~/.kaggle/kaggle.json)\n\n# Download the dataset using Kaggle API and unzip into the /opt/***/etl directory\nkaggle datasets download -d jacksoncrow/stock-market-dataset --unzip -p /opt/***/load']
+[2023-05-10 03:55:49,020] {subprocess.py:85} INFO - Output:
+[2023-05-10 03:55:52,978] {subprocess.py:89} INFO - Defaulting to user installation because normal site-packages is not writeable
+[2023-05-10 03:55:54,254] {subprocess.py:89} INFO - Collecting kaggle
+[2023-05-10 03:55:55,079] {subprocess.py:89} INFO -   Downloading kaggle-1.5.13.tar.gz (63 kB)
+[2023-05-10 03:55:55,395] {subprocess.py:89} INFO -   Preparing metadata (setup.py): started
+[2023-05-10 03:55:58,397] {subprocess.py:89} INFO -   Preparing metadata (setup.py): finished with status 'done'
+[2023-05-10 03:55:58,422] {subprocess.py:89} INFO - Requirement already satisfied: six>=1.10 in /home/***/.local/lib/python3.7/site-packages (from kaggle) (1.16.0)
+[2023-05-10 03:55:58,423] {subprocess.py:89} INFO - Requirement already satisfied: certifi in /home/***/.local/lib/python3.7/site-packages (from kaggle) (2020.12.5)
+[2023-05-10 03:55:58,424] {subprocess.py:89} INFO - Requirement already satisfied: python-dateutil in /home/***/.local/lib/python3.7/site-packages (from kaggle) (2.8.2)
+[2023-05-10 03:55:58,425] {subprocess.py:89} INFO - Requirement already satisfied: requests in /home/***/.local/lib/python3.7/site-packages (from kaggle) (2.26.0)
+[2023-05-10 03:55:59,259] {subprocess.py:89} INFO - Collecting tqdm
+[2023-05-10 03:55:59,416] {subprocess.py:89} INFO -   Downloading tqdm-4.65.0-py3-none-any.whl (77 kB)
+[2023-05-10 03:55:59,494] {subprocess.py:89} INFO - Requirement already satisfied: python-slugify in /home/***/.local/lib/python3.7/site-packages (from kaggle) (4.0.1)
+[2023-05-10 03:55:59,495] {subprocess.py:89} INFO - Requirement already satisfied: urllib3 in /home/***/.local/lib/python3.7/site-packages (from kaggle) (1.26.7)
+[2023-05-10 03:55:59,516] {subprocess.py:89} INFO - Requirement already satisfied: text-unidecode>=1.3 in /home/***/.local/lib/python3.7/site-packages (from python-slugify->kaggle) (1.3)
+[2023-05-10 03:55:59,576] {subprocess.py:89} INFO - Requirement already satisfied: idna<4,>=2.5 in /home/***/.local/lib/python3.7/site-packages (from requests->kaggle) (3.3)
+[2023-05-10 03:55:59,585] {subprocess.py:89} INFO - Requirement already satisfied: charset-normalizer~=2.0.0 in /home/***/.local/lib/python3.7/site-packages (from requests->kaggle) (2.0.9)
+[2023-05-10 03:55:59,690] {subprocess.py:89} INFO - Building wheels for collected packages: kaggle
+[2023-05-10 03:55:59,691] {subprocess.py:89} INFO -   Building wheel for kaggle (setup.py): started
+[2023-05-10 03:56:02,859] {subprocess.py:89} INFO -   Building wheel for kaggle (setup.py): finished with status 'done'
+[2023-05-10 03:56:02,859] {subprocess.py:89} INFO -   Created wheel for kaggle: filename=kaggle-1.5.13-py3-none-any.whl size=77734 sha256=db5b78928559dde4d47251f5d0e5bbc2c003678850cd15ad0eda51c3d47168f6
+[2023-05-10 03:56:02,860] {subprocess.py:89} INFO -   Stored in directory: /home/***/.cache/pip/wheels/fd/97/a6/3372cb23468915cbcf108338dd29c73379fd1a55828ec608ba
+[2023-05-10 03:56:02,860] {subprocess.py:89} INFO - Successfully built kaggle
+[2023-05-10 03:56:24,625] {subprocess.py:89} INFO - Installing collected packages: tqdm, kaggle
+[2023-05-10 03:56:25,639] {subprocess.py:89} INFO - Successfully installed kaggle-1.5.13 tqdm-4.65.0
+[2023-05-10 03:56:27,050] {subprocess.py:89} INFO - WARNING: You are using pip version 21.3.1; however, version 23.1.2 is available.
+[2023-05-10 03:56:27,051] {subprocess.py:89} INFO - You should consider upgrading via the '/usr/local/bin/python -m pip install --upgrade pip' command.
+[2023-05-10 03:56:32,413] {subprocess.py:89} INFO - stock-market-dataset.zip: Skipping, found more recently modified local copy (use --force to force download)
+[2023-05-10 03:56:32,917] {subprocess.py:93} INFO - Command exited with return code 0
+[2023-05-10 03:56:33,268] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=data_processing_dag, task_id=download_dataset, execution_date=20230510T035156, start_date=20230510T035548, end_date=20230510T035633
+[2023-05-10 03:56:33,585] {local_task_job.py:154} INFO - Task exited with return code 0
+[2023-05-10 03:56:34,092] {local_task_job.py:264} INFO - 2 downstream tasks scheduled from follow-on schedule check

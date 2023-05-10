@@ -1,0 +1,69 @@
+[2023-05-10 04:07:12,765] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_processing_dag.process_dataset manual__2023-05-10T03:51:56.264499+00:00 [queued]>
+[2023-05-10 04:07:12,825] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_processing_dag.process_dataset manual__2023-05-10T03:51:56.264499+00:00 [queued]>
+[2023-05-10 04:07:12,826] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-10 04:07:12,834] {taskinstance.py:1239} INFO - Starting attempt 3 of 3
+[2023-05-10 04:07:12,835] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-10 04:07:12,882] {taskinstance.py:1259} INFO - Executing <Task(PythonOperator): process_dataset> on 2023-05-10 03:51:56.335783+00:00
+[2023-05-10 04:07:12,897] {standard_task_runner.py:52} INFO - Started process 2856 to run task
+[2023-05-10 04:07:12,914] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'data_processing_dag', 'process_dataset', 'manual__2023-05-10T03:51:56.264499+00:00', '--job-id', '137', '--raw', '--subdir', 'DAGS_FOLDER/data_processing_dag.py', '--cfg-path', '/tmp/tmpmc40jead', '--error-file', '/tmp/tmpkaig8pbq']
+[2023-05-10 04:07:12,915] {standard_task_runner.py:77} INFO - Job 137: Subtask process_dataset
+[2023-05-10 04:07:13,208] {logging_mixin.py:109} INFO - Running <TaskInstance: data_processing_dag.process_dataset manual__2023-05-10T03:51:56.264499+00:00 [running]> on host cd79de2e36bd
+[2023-05-10 04:07:13,408] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=data_processing_dag
+AIRFLOW_CTX_TASK_ID=process_dataset
+AIRFLOW_CTX_EXECUTION_DATE=2023-05-10T03:51:56.335783+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-05-10T03:51:56.264499+00:00
+[2023-05-10 04:07:13,515] {taskinstance.py:1700} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 174, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 185, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/processing.py", line 30, in data_tranformation
+    file_df.insert(0, 'Symbol', match['Symbol'].iloc[0])
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/frame.py", line 4414, in insert
+    raise ValueError(f"cannot insert {column}, already exists")
+ValueError: cannot insert Symbol, already exists
+[2023-05-10 04:07:13,549] {taskinstance.py:1277} INFO - Marking task as FAILED. dag_id=data_processing_dag, task_id=process_dataset, execution_date=20230510T035156, start_date=20230510T040712, end_date=20230510T040713
+[2023-05-10 04:07:13,591] {standard_task_runner.py:92} ERROR - Failed to execute job 137 for task process_dataset
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/task/task_runner/standard_task_runner.py", line 85, in _start_by_fork
+    args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/cli_parser.py", line 48, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/cli.py", line 92, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 298, in task_run
+    _run_task_by_selected_method(args, dag, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 107, in _run_task_by_selected_method
+    _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 184, in _run_raw_task
+    error_file=args.error_file,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 70, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 174, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 185, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/processing.py", line 30, in data_tranformation
+    file_df.insert(0, 'Symbol', match['Symbol'].iloc[0])
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/frame.py", line 4414, in insert
+    raise ValueError(f"cannot insert {column}, already exists")
+ValueError: cannot insert Symbol, already exists
+[2023-05-10 04:07:13,631] {local_task_job.py:154} INFO - Task exited with return code 1
+[2023-05-10 04:07:13,813] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check
